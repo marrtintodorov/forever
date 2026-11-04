@@ -1,0 +1,256 @@
+/* FOREVER — shared styles.
+   Look: classy, dark, editorial. Black + white with a champagne-gold accent. */
+
+:root {
+  --black: #000000;
+  --panel: #111111;      /* slightly lighter black for cards */
+  --white: #FFFFFF;
+  --text: #E6E6E6;       /* body text */
+  --muted: #A8A8A8;      /* secondary text */
+  --gold: #C9A961;       /* accent */
+  --gold-dark: #8C7440;
+  --line: #2A2A2A;       /* dividers */
+
+  --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --page-width: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+@media (max-width: 900px) { html { scroll-padding-top: 130px; } }
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+a { color: inherit; }
+
+h1, h2, h3 { color: var(--white); margin: 0 0 0.6em; }
+
+h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+h3 { font-size: 1.15rem; letter-spacing: 0.04em; }
+
+p { margin: 0 0 1.2em; }
+
+.container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Buttons: white, square, capitals ---------- */
+.btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  padding: 14px 36px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: var(--gold); color: var(--black); }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--black);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 84px;
+}
+.brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  letter-spacing: 0.22em;
+  color: var(--white);
+}
+.tagline {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--muted);
+  border-left: 1px solid var(--gold);
+  padding-left: 14px;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+.main-nav a:hover { color: var(--gold); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 84px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Placeholder for a black & white photo, with a dark overlay */
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+    repeating-linear-gradient(45deg, #2B2B2B, #2B2B2B 14px, #333 14px, #333 28px);
+}
+.hero-photo-label {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hero h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.15;
+  margin-bottom: 0.4em;
+}
+.hero .sub {
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  color: var(--white);
+  margin-bottom: 2em;
+}
+
+/* ---------- Sections ---------- */
+.section { padding: 96px 0; }
+.section + .section { border-top: 1px solid var(--line); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.two-col.top { align-items: start; }
+
+/* Stacked gold bars (the reference's coloured bars, in gold shades) */
+.bars-title { font-size: 1.6rem; font-weight: 300; color: var(--white); margin-bottom: 14px; }
+.bars { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; max-width: 520px; }
+.bars a {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--black);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  transition: filter 0.2s;
+}
+.bars a:hover { filter: brightness(1.15); }
+.bars li:nth-child(1) a { background: #E2CC94; }
+.bars li:nth-child(2) a { background: #D7BC7B; }
+.bars li:nth-child(3) a { background: #C9A961; }
+.bars li:nth-child(4) a { background: #B4944F; }
+.bars li:nth-child(5) a { background: #9E8043; color: var(--white); }
+
+/* Image placeholder */
+.ph-img {
+  background: repeating-linear-gradient(45deg, #1E1E1E, #1E1E1E 14px, #262626 14px, #262626 28px);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 16px;
+  min-height: 420px;
+}
+
+/* ---------- Collection cards ---------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+.piece .ph-img { min-height: 340px; }
+.piece h3 { margin: 18px 0 4px; }
+.price { color: var(--gold); font-size: 0.95rem; }
+
+/* ---------- Contact ---------- */
+.contact-list { list-style: none; padding: 0; margin: 0 0 32px; }
+.contact-list li {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list strong {
+  min-width: 150px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* ---------- Phones and small tablets ---------- */
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; min-height: 72px; }
+  .tagline { display: none; }
+  /* One-page site: on phones the menu is a short row of links (no ☰ to get stuck open) */
+  .header-inner { padding-top: 12px; padding-bottom: 12px; gap: 8px; }
+  .main-nav { width: 100%; }
+  .main-nav ul { flex-wrap: wrap; gap: 6px 20px; }
+  .main-nav a { font-size: 0.8rem; display: inline-block; padding: 6px 0; }
+
+  .section { padding: 64px 0; }
+  .two-col, .grid-3 { grid-template-columns: 1fr; gap: 36px; }
+  .ph-img { min-height: 260px; }
+  .contact-list li { flex-direction: column; gap: 2px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  .hero-photo-label { white-space: normal; width: 90%; }
+}
