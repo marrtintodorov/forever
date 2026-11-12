@@ -98,6 +98,27 @@
         <div>
           <h2>Visit the boutique</h2>
           <p>See and try every piece in person, or book a private appointment for bespoke design.</p>
+
+          <form id="enquiry-form" class="enquiry-form">
+            <h3>Book a consultation</h3>
+            <label for="enquiry-name">Name</label>
+            <input id="enquiry-name" name="name" type="text" autocomplete="name" maxlength="200" required>
+
+            <label for="enquiry-email">Email</label>
+            <input id="enquiry-email" name="email" type="email" autocomplete="email" maxlength="320" required>
+
+            <label for="enquiry-message">Message</label>
+            <textarea id="enquiry-message" name="message" rows="5" maxlength="5000" required></textarea>
+
+            <!-- Spam guard: hidden from people, robots fill it in -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="enquiry-website">Website</label>
+              <input id="enquiry-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn" type="submit">Send enquiry</button>
+            <p id="enquiry-status" class="enquiry-status" role="status"></p>
+          </form>
           <ul class="contact-list">
             <li><strong>Address</strong><span>[Address]</span></li>
             <li><strong>Phone</strong><span>[Phone number]</span></li>
@@ -116,5 +137,6 @@
       <span>Fine jewellery &amp; bespoke design · [City]</span>
     </div>
   </footer>
+  <script src="form.js" defer></script>
 </body>
 </html>
