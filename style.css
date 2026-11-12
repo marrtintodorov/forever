@@ -124,10 +124,10 @@ p { margin: 0 0 1.2em; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Placeholder for a black & white photo, with a dark overlay */
+  /* Hero photo, with a dark overlay so the white text stays readable */
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-    repeating-linear-gradient(45deg, #2B2B2B, #2B2B2B 14px, #333 14px, #333 28px);
+    url("images/hero.jpg") center / cover no-repeat;
 }
 .hero-photo-label {
   position: absolute;
@@ -197,6 +197,9 @@ p { margin: 0 0 1.2em; }
   min-height: 420px;
 }
 
+/* Real photos use the same box size, cropped to fill it */
+img.ph-img { display: block; width: 100%; height: 420px; min-height: 0; padding: 0; object-fit: cover; }
+
 /* ---------- Collection cards ---------- */
 .grid-3 {
   display: grid;
@@ -205,6 +208,7 @@ p { margin: 0 0 1.2em; }
   margin-top: 40px;
 }
 .piece .ph-img { min-height: 340px; }
+.piece img.ph-img { height: 340px; }
 .piece h3 { margin: 18px 0 4px; }
 .price { color: var(--gold); font-size: 0.95rem; }
 
@@ -279,6 +283,7 @@ p { margin: 0 0 1.2em; }
   .section { padding: 64px 0; }
   .two-col, .grid-3 { grid-template-columns: 1fr; gap: 36px; }
   .ph-img { min-height: 260px; }
+  img.ph-img, .piece img.ph-img { height: 300px; }
   .contact-list li { flex-direction: column; gap: 2px; }
 }
 
